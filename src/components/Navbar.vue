@@ -1,10 +1,10 @@
 <template>
-	<div class="container flex flex-col">
+	<div class="w-full flex flex-col">
     <!-- component -->
-	<nav class="container flex flex-row bg-gradient-to-r from-indigo-100 to-fuchsia-200 shadow-lg px-4 py-4 justify-between items-center w-full h-20">
+	<nav id="navbar" class="w-full h-20 transition-all duration-500 relative top-0 flex flex-row bg-gradient-to-r from-indigo-100 to-fuchsia-200 shadow-xl px-4 py-4 justify-between items-center">
 		<!--image logo-->
 		<div class="">
-			<img alt="Corporation logo" class="inline h-16 sm:mx-0 sm:shrink-0" v-bind:src="logoImage"/>
+			<img alt="Corporation logo" class="sticky top-2 hover:scale-125 hover:translate-x-4 hover:translate-y-4 transition-transform inline h-16 sm:mx-0 sm:shrink-0" v-bind:src="logoImage"/>
 		</div>
 
 		<div class="lg:hidden">
@@ -15,7 +15,7 @@
 				</svg>
 			</button>
 		</div>
-		<ul class="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
+		<ul class="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
 			<li>
 				<RouterLink to="/" class="text-md text-blue-400 hover:text-blue-800 hover:font-bold hover:text-xl">Home</RouterLink>
 			</li>
@@ -51,7 +51,7 @@
 	<!-- mobile: sliding navbar by menu button-->
 	<div class="navbar-menu relative z-50 hidden">
 		<div class="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"></div>
-		<nav class="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-white border-r overflow-y-auto">
+		<nav class="bg-gradient-to-br from-indigo-100 to-fuchsia-200 fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-white border-r overflow-y-auto">
 			<div class="flex items-center mb-8">
 				<a class="mr-auto text-3xl font-bold leading-none">
 					<img alt="Corporation logo" class="inline h-16 sm:mx-0 sm:shrink-0" v-bind:src="logoImage"/>
@@ -77,11 +77,11 @@
 			</div>
 			<div class="mt-auto">
 				<div class="pt-6">
-					<a class="block px-4 py-3 mb-3 leading-loose text-xs text-center font-semibold leading-none bg-gray-50 hover:bg-gray-100 rounded-xl" href="#">Sign in</a>
+					<a class="block px-4 py-3 mb-3 leading-loose text-xs text-center font-semibold bg-gray-50 hover:bg-gray-100 rounded-xl" href="#">Sign in</a>
 					<a class="block px-4 py-3 mb-2 leading-loose text-xs text-center text-white font-semibold bg-blue-600 hover:bg-blue-700  rounded-xl" href="#">Sign Up</a>
 				</div>
 				<p class="my-4 text-xs text-center text-gray-400">
-					<span>Copyright © 2021</span>
+					<span>{{ trademarkDescription }}</span>
 				</p>
 			</div>
 		</nav>
@@ -92,12 +92,16 @@ defineProps({
 	logoImage: {
 	type:String,
 	Required:true
+	},
+	trademarkDescription: {
+	type:String,
+	Required:true
 	}
 
 });
 // Burger menus
 document.addEventListener('DOMContentLoaded', function() {
-    // open
+    // mobile menu open effect
     const burger = document.querySelectorAll('.navbar-burger');
     const menu = document.querySelectorAll('.navbar-menu');
 
@@ -106,12 +110,13 @@ document.addEventListener('DOMContentLoaded', function() {
             burger[i].addEventListener('click', function() {
                 for (var j = 0; j < menu.length; j++) {
                     menu[j].classList.toggle('hidden');
+					console.log('menu'+j+ '  : '+menu[j])
                 }
             });
         }
     }
 
-    // close
+    //mobile menu close effect
     const close = document.querySelectorAll('.navbar-close');
     const backdrop = document.querySelectorAll('.navbar-backdrop');
 
@@ -135,4 +140,31 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 });
+
+ /* When the user scrolls down, hide the navbar. When the user scrolls up, show the navbar */
+ var lastScrollPos=window.scrollY;
+ window.onscroll=function(){
+
+	var currentScrollPos=window.scrollY;
+
+	//element position should be relative; if not, it can be adjusted from JS
+	var element = document.getElementById('navbar');
+
+	//scrolled up
+	if (currentScrollPos < lastScrollPos ){
+
+		//position the relative element by page viewport
+		element.style.top=element.style.top=window.visualViewport.pageTop.toString().concat('px')
+		element.style.transitionDuration=String('0.3s');
+		//element.style.position = 'relative';
+	}
+	//scroll down
+	else{
+
+		element.style.top = String('0px');
+
+	}
+	lastScrollPos=currentScrollPos;
+
+ }
 </script>

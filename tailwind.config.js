@@ -3,7 +3,12 @@ export default {
   purge: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   content: [],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily:{
+        'dancing-script': ['Dancing Script', 'cursive'],
+        'satisfy':['Satisfy', 'cursive']
+      }
+    },
   },
   plugins: [],
 }

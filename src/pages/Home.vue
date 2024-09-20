@@ -1,6 +1,10 @@
 <script setup>
+import Title from '@/components/Title.vue';
 </script>
 <template>
+    <Title
+    title="Welcome"
+    description="to the fairy shop of tailorship."/>
     <div class="flex flex-col gap-4 p-8">
 
         <h2 class="text-4xl font-bold">Some Paragraph header</h2>

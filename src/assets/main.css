@@ -34,3 +34,13 @@ a,
     padding: 0 2rem;
   }
 }*/
+
+/*custom fonts on local*/
+@font-face {
+  font-family: 'Dancing Script';
+  src: url('../resources/fonts/google/DancingScript-VariableFont_wght.ttf');
+}
+@font-face {
+  font-family: 'Satisfy';
+  src: url('../resources/fonts/google/Satisfy-Regular.ttf');
+}

@@ -22,6 +22,7 @@ import Title from '@/components/Title.vue';
                 mail="fatoş@fmodaevi.com"
                 phone="5AB XXX XX XX"
                 address="Fevzi Çakmak, İpekyolu Cd. no 10, 52300 Ünye/Ordu"
+                facebook="https://www.facebook.com/people/Fato%C5%9Fmodaevi-%C3%BCnye/100085871311430/"
                 />
 
             </div>

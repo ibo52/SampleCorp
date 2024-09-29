@@ -2,6 +2,7 @@
 import { reactive } from 'vue';
 import Title from '@/components/Title.vue';
 import WidgetIconBox from '@/components/WidgetIconBox.vue';
+import { counter } from '@fortawesome/fontawesome-svg-core';
 
 const props=reactive({
   Title:{
@@ -13,27 +14,72 @@ const props=reactive({
 const whatDoWeDo=reactive(
     [
         {
-            title:"Cutting",
-            description:"we cut the fabrcs to suit your needs"
+            title:"Robustness",
+            description:`As a skilled tailor with years of experience in
+             creating and altering garments;
+             ensuring precision and quality in every stitch.`
         },
         {
-            title:"brief title2",
-            description:"we prepare the needs to solidify your idea"
+            title:"Casting desires to fabric",
+            description:"personalized fittings and style advice, making it convenient for all clients."
         },
         {
-            title:"brief title 3",
-            description:"we prepare the needs to solidify your idea"
+            title:"Alteration",
+            description:`Professional alteration services for all types of clothing,
+             from hems to full adjustments, ensuring the perfect fit.`
         },
         {
-            title:"brief title 4",
-            description:"we prepare the needs to solidify your idea longer script text lorem ipsum dolom sit amet lorem ipsum"
-        },
-        {
-            title:"brief title 5",
-            description:"we prepare the needs to solidify your idea longer script text lorem ipsum dolom sit amet lorem ipsum"
+            title:"Our Portfolio",
+            description:`Have a look at our showcase of previous works, illustrating the variety of
+             styles and projects undertaken, including before-and-after shots.`
         }
     ]
 )
+
+//dynamic binding to boxes on "whatdowedo widget"
+//set periodic back process to dynamically change the context
+//at section "What do we do"
+class DynamicBoxes{
+    counter=0
+    boxCounter=0
+
+    bindings=reactive([
+        {
+            title:"",
+            description:""
+        },
+        {
+            title:"",
+            description:""
+        },
+        {
+            title:"",
+            description:""
+        }
+    ])
+
+    constructor(){}
+
+    update() {
+
+
+        setInterval(() => {
+
+            let limit= whatDoWeDo.length<=this.bindings.length? whatDoWeDo.length:this.bindings.length
+
+            for (let index = 0; index < limit; index++) {
+
+                this.bindings[this.boxCounter].title=whatDoWeDo[this.counter].title
+                this.bindings[this.boxCounter].description=whatDoWeDo[this.counter].description
+
+                this.counter=(this.counter+1) % whatDoWeDo.length
+                this.boxCounter=(this.boxCounter+1) % this.bindings.length
+            }
+    }, 4000);
+    }
+}
+const dynamicBoxes=new DynamicBoxes()
+dynamicBoxes.update()
 
 </script>
 <template>
@@ -128,22 +174,22 @@ const whatDoWeDo=reactive(
                 <WidgetIconBox
                 id="whatdowedo1"
                 class="col-span-2"
-                title=""
-                description=""
+                :title=dynamicBoxes.bindings[0].title
+                :description=dynamicBoxes.bindings[0].description
                 />
                 <WidgetIconBox
                 id="whatdowedo2"
                 class="col-span-2"
-                title=""
-                description=""
+                :title=dynamicBoxes.bindings[1].title
+                :description=dynamicBoxes.bindings[1].description
                 />
                 <div></div>
                 <div></div>
                 <WidgetIconBox
                 id="whatdowedo3"
                 class="col-span-2"
-                title=""
-                description=""
+                :title=dynamicBoxes.bindings[2].title
+                :description=dynamicBoxes.bindings[2].description
                 />
             </div>
          </div>

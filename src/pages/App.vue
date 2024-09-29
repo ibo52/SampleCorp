@@ -1,13 +1,27 @@
 <script setup>
+import {ref, reactive} from 'vue';
 import Nav2 from '../components/Navbar.vue'
 import Footer from '@/components/Footer.vue';
+
+const props=reactive({
+  title:'Fatoş Moda Evi',
+  logoImage:"src/resources/logo.svg",
+  trademarkDescription:"© 2024 Fatoş Moda Evi | Fashionable and Comfortable clothing tailoring",
+  designerAgencyName:"HaloSoft Inc.",
+  designerAgencyDescription:"All rights reserved",
+  designerAgencyRefLink:"https://www.github.com/ibo52",
+  designerAgencyLogo:"src/resources/website agency/logo.png"
+})
+
+document.title=props.title
+
 </script>
 
 <template>
   <header class="flex flex-col">
       <Nav2
-      logo-image="src/assets/logo.svg"
-      trademark-description="© 2024 Fatoş Moda Evi | Fashionable and Comfortable clothing tailoring"
+      v-bind:logo-image=props.logoImage
+      v-bind:trademark-description=props.trademarkDescriptio
       />
   </header>
 
@@ -16,11 +30,11 @@ import Footer from '@/components/Footer.vue';
   </main>
   <footer>
     <Footer
-    company-name="HaloSoft Inc."
-    company-description="All rights reserved"
-    company-website="https://www.github.com/ibo52"
-    company-logo="src/resources/website agency/logo.png"
-    website-owner-info="© 2024 Fatoş Moda Evi | Fashionable and Comfortable clothing tailoring"
+    :company-name=props.designerAgencyName
+    :company-description=props.designerAgencyDescription
+    :company-website=props.designerAgencyRefLink
+    :company-logo=props.designerAgencyLogo
+    :website-owner-info=props.trademarkDescription
     />
   </footer>
 </template>

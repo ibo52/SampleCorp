@@ -14,22 +14,22 @@ const props=reactive({
 const whatDoWeDo=reactive(
     [
         {
-            title:"Robustness",
+            title:"1 Robustness",
             description:`As a skilled tailor with years of experience in
              creating and altering garments;
              ensuring precision and quality in every stitch.`
         },
         {
-            title:"Casting desires to fabric",
+            title:"2 Casting desires to fabric",
             description:"personalized fittings and style advice, making it convenient for all clients."
         },
         {
-            title:"Alteration",
+            title:"3 Alteration",
             description:`Professional alteration services for all types of clothing,
              from hems to full adjustments, ensuring the perfect fit.`
         },
         {
-            title:"Our Portfolio",
+            title:"4 Our Portfolio",
             description:`Have a look at our showcase of previous works, illustrating the variety of
              styles and projects undertaken, including before-and-after shots.`
         }
@@ -40,8 +40,7 @@ const whatDoWeDo=reactive(
 //set periodic back process to dynamically change the context
 //at section "What do we do"
 class DynamicBoxes{
-    counter=0
-    boxCounter=0
+    textCounter=0
 
     bindings=reactive([
         {
@@ -58,27 +57,62 @@ class DynamicBoxes{
         }
     ])
 
-    constructor(){}
+    constructor(context){
+        this.contextRef=context
+
+        //initialize the dynamic text
+        this.textCounter= this.bindings.length<context.length? this.bindings.length : context.length
+
+        for (let nth_box = 0; nth_box < this.textCounter; nth_box++) {
+
+            this.bindings[nth_box].title=context[nth_box].title
+            this.bindings[nth_box].description=context[nth_box].description
+
+        }
+    }
 
     update() {
 
-
         setInterval(() => {
 
-            let limit= whatDoWeDo.length<=this.bindings.length? whatDoWeDo.length:this.bindings.length
 
-            for (let index = 0; index < limit; index++) {
+            //bind texts to dynamic Vue properties which updates view, respectively
+            for (let nth_box = 0; nth_box < this.bindings.length; nth_box++) {
 
-                this.bindings[this.boxCounter].title=whatDoWeDo[this.counter].title
-                this.bindings[this.boxCounter].description=whatDoWeDo[this.counter].description
+                const boxElement=document.getElementById( String('whatdowedo').concat(nth_box+1) )
 
-                this.counter=(this.counter+1) % whatDoWeDo.length
-                this.boxCounter=(this.boxCounter+1) % this.bindings.length
+                //1. rescale the boxes to disappear
+                const duration=600
+
+                let boxAnim=boxElement.animate([
+                        {transform:`rotateY(0.25turn)`}, // keyframe
+                    ],
+                        {duration:duration})
+
+
+                boxAnim.onfinish=(event)=>{
+
+                    //2. update dynamic reference to change content
+                    let calcIdx=(this.textCounter+nth_box) % this.contextRef.length
+
+                    this.bindings[nth_box].title = this.contextRef[ calcIdx ].title
+                    this.bindings[nth_box].description = this.contextRef[ calcIdx ].description
+
+                    //3. resize the boxes to show
+                    boxElement.animate([
+                        {transform: `rotateY(0.25turn)` },
+                        { transform: "rotateY(0turn)" }, // keyframe
+                    ],
+                        {duration:duration})
+                }
             }
-    }, 4000);
+            //skip as much as dynamic box sizes, which is the limit of number of text at a time
+            this.textCounter=(this.textCounter + this.bindings.length) % this.contextRef.length
+
+    }, 3000);
     }
 }
-const dynamicBoxes=new DynamicBoxes()
+const dynamicBoxes=new DynamicBoxes(whatDoWeDo)
 dynamicBoxes.update()
 
 </script>

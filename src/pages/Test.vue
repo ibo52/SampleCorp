@@ -4,6 +4,7 @@ import Title from '@/components/Title.vue';
 import WidgetIconBox from '@/components/WidgetIconBox.vue';
 import Gallery from '@/components/Gallery.vue';
 import WallGallery from '@/components/WallGallery.vue';
+import ShiftingBrandLabels from '@/components/ShiftingBox.vue';
 
 const props=reactive({
   Title:{
@@ -230,9 +231,9 @@ dynamicBoxes.update()
         </div>
 
         <!-- basic portfolio-->
-         <div class="flex flex-row gap-8 items-center">
+         <div class="flex flex-row gap-8 w-full items-center justify-center">
 
-            <Gallery/>
+            <ShiftingBrandLabels></ShiftingBrandLabels>
          </div>
     </div>
 </div>

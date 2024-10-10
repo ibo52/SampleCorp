@@ -1,0 +1,26 @@
+{
+    "John smith":{
+        "img":"src/resources/alteration.jpg",
+        "comment":"It was a great opportunity to work with her/him."
+    },
+
+    "Jane doe":{
+        "img":"src/resources/alteration.jpg",
+        "comment":"The dresses have a goergeous design."
+    },
+
+    "Matt hoe":{
+        "img":"src/resources/alteration.jpg",
+        "comment":"Can not be compared to anyone."
+    },
+
+    "Jane Smith":{
+        "img":"src/resources/alteration.jpg",
+        "comment":"advanced in terms of fashion and modesty"
+    },
+
+    "Jessie Moe":{
+        "img":"src/resources/alteration.jpg",
+        "comment":"Find by a suggestion of a friend when looking for a capable tailor to make a dress i saw on the net. I totally fell for the dress made."
+    }
+}

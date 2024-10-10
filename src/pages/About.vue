@@ -1,12 +1,26 @@
 <script setup>
+import { reactive } from 'vue';
+import Gallery from '@/components/Gallery.vue';
 import Title from '@/components/Title.vue';
+
+const props=reactive({
+  Title:{
+        title:"Get to know us.",
+        description:"We bring our customers' desires to life.",
+    }
+})
 </script>
 <template>
+    <div class="flex flex-col">
+
+    <div class="flex flex-col items-center w-full bg-fuchsia-200 pb-[8rem]
+    bg-cover bg-center bg-fixed bg-[url('../resources/sketch2.png')]">
     <Title
-        title="Who are we?"
-        description="We bring our customers' desires to life."
-        background-image="../src/tailoring.jpg"
+        class=" text-gray-800 drop-shadow-[0_4.8px_1.2px_rgba(255,0,255,0.8)]"
+        :title=props.Title.title
+        :description=props.Title.description
         />
+        </div>
 
         <div class="container grid grid-cols-2 gap-6 gap-y-8">
 
@@ -55,4 +69,6 @@ import Title from '@/components/Title.vue';
             </div>
         </div>
 
+        <Gallery/>
+    </div>
 </template>

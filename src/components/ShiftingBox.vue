@@ -1,20 +1,38 @@
 <script setup>
-import { reactive } from 'vue';
+import { computed, onBeforeUnmount, onMounted, reactive } from 'vue';
 import ReferenceComment from './ReferenceComment.vue';
 
 const references={
     "John smith":{
-        "img":"src/resources/sketch2.jpg",
-        "comment":"It was a great opportunity to work with her/him. It was a great opportunity to work with her/himIt was a great opportunity to work with her/him"
+        "img":"src/resources/alteration.jpg",
+        "comment":"It was a great opportunity to work with her/him."
     },
 
     "Jane doe":{
-        "img":"src/resources/alteration.jpg",
+        "img":"src/resources/tailoring2.jpg",
         "comment":"The dresses have a goergeous design."
     },
 
+    "Matt hoe":{
+        "img":"src/resources/tailoring.jpg",
+        "comment":"Can not be compared to anyone."
+    },
+
+    "Jane Smith":{
+        "img":"src/resources/logo.png",
+        "comment":"advanced in terms of fashion and modesty"
+    },
+
+    "Jessie Moe":{
+        "img":"src/resources/sketch3.jpg",
+        "comment":"Find by a suggestion of a friend when looking for a capable tailor to make a dress i saw on the net. I totally fell for the dress made."
+    }
 }
 
+const referencesLength=computed( ()=> {
+    return Object.keys(references).length
+})
+console.log(referencesLength.value)
 const props=reactive([
     {
         logoSrc:"",
@@ -28,6 +46,8 @@ class ShiftingBox{
     ANIM_VELOCITY=200
     SHIFT_DIRECTION="right"
 
+    updater;
+
     constructor(shiftTo, animVelocity=200){
 
         this.ANIM_VELOCITY=animVelocity
@@ -39,11 +59,11 @@ class ShiftingBox{
 
     update(){
 
-        setTimeout(() => {
+        /*setTimeout(() => {
 
             const canvas=document.getElementById('canvas')
 
-            /*for (let key in references) {
+            for (let key in references) {
                console.log(references[key].img)
 
 
@@ -62,16 +82,13 @@ class ShiftingBox{
 
                 canvas.appendChild(element)
 
-            }*/
-        }, 1000);
+            }
+        }, 1000);*/
 
-        setInterval(() => {
+        this.updater=setInterval(() => {
 
             var element=document.getElementById('canvas')
             var viewport=document.getElementById('viewport')
-
-            if(element===null)
-                return;
 
             switch(this.SHIFT_DIRECTION){
                 case 'up':
@@ -84,9 +101,7 @@ class ShiftingBox{
                     this.moveX(this.SHIFT_DIRECTION, element, viewport)
                     break;
                 default:
-                case 'up':
-                case 'down':
-                    this.moveX("right", element, viewport)
+                    this.moveX("left", element, viewport)
                     break;
             }
 
@@ -130,11 +145,23 @@ class ShiftingBox{
         }
     }
 
+    stop(){
+        clearInterval(this.updater)
+    }
+
 }
 
-const l=new ShiftingBox('right', 50)
-l.update()
+let shiftingBox=null;
+onMounted(()=>{
 
+    shiftingBox=new ShiftingBox('right', 50)
+    shiftingBox.update()
+
+})
+
+onBeforeUnmount(()=>{
+    shiftingBox.stop()
+})
 </script>
 <template>
     <!--scroll view-->

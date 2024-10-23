@@ -170,7 +170,7 @@ onBeforeUnmount(()=>{
         <div id="canvas" class="relative flex flex-col md:flex-row gap-8 md:grid md:grid-cols-2 xl:grid-cols-4">
 
             <!--Add reference image and descriptions from work partners or anything-->
-            <div class="items-start flex flex-row" v-for="(item, key) in references">
+            <div class="items-start flex flex-row" v-for="(item, key) in references" v-bind:key="key">
                 <ReferenceComment :img="item.img" :comment="item.comment" :name="key"></ReferenceComment>
 
             </div>

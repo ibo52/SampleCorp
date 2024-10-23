@@ -15,9 +15,9 @@ defineProps({
 })
 </script>
 <template><!--bg-[url('../resources/sample.jpg')]-->
-    <div class="flex flex-col bg-fuchsia-200 text-center p-20 bg-cover bg-center">
+    <div class="flex flex-col font-dancing-script text-center py-10">
 <!-- v-bind:style="{'background-image': new URL(backgroundImage)}" -->
-            <h1 class="text-4xl font-bold">{{ title }}</h1>
-            <p class="text-xl font-extralight">{{ description }}</p>
-        </div>
+            <h1 class="text-8xl lg:text-9xl font-bold">{{ title }}</h1>
+            <p class="text-4xl lg:text-5xl font-light">{{ description }}</p>
+    </div>
 </template>

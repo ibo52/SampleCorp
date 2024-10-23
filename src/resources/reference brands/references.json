@@ -5,22 +5,22 @@
     },
 
     "Jane doe":{
-        "img":"src/resources/alteration.jpg",
+        "img":"src/resources/tailoring2.jpg",
         "comment":"The dresses have a goergeous design."
     },
 
     "Matt hoe":{
-        "img":"src/resources/alteration.jpg",
+        "img":"src/resources/tailoring.jpg",
         "comment":"Can not be compared to anyone."
     },
 
     "Jane Smith":{
-        "img":"src/resources/alteration.jpg",
+        "img":"src/resources/logo.png",
         "comment":"advanced in terms of fashion and modesty"
     },
 
     "Jessie Moe":{
-        "img":"src/resources/alteration.jpg",
+        "img":"src/resources/sketch3.jpg",
         "comment":"Find by a suggestion of a friend when looking for a capable tailor to make a dress i saw on the net. I totally fell for the dress made."
     }
 }

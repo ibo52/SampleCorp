@@ -2,32 +2,38 @@
 defineProps({
     companyName:{
         type: String,
-        required: true
+        required: false
     },
     companyLogo:{
         type: String,
-        required: true
+        required: false
     },
     companyDescription:{
         type: String,
-        required: true
+        required: false
     },
     companyWebsite:{
         type: String,
-        required: true
+        required: false
     },
     websiteOwnerInfo:{
         type: String,
-        required: true
+        required: false
+    },
+    websiteOwnerLogo:{
+        type: String,
+        required: false
     }
 })
 </script>
 <template><!--bg-[url('../resources/sample.jpg')]-->
-    <div class="flex flex-row justify-between bg-fuchsia-200 text-center p-2 bg-cover bg-center">
+    <div class="flex flex-row justify-between bg-fuchsia-200 text-center p-2">
 
         <!--website owner info-->
-        <p class="text-start font-bold text-lg">{{ websiteOwnerInfo }}</p>
-
+        <div class="flex flex-col">
+            <img src="../resources/logo.svg" fill="#fff" class="w-40 h-full">
+            <p class="text-start font-bold text-lg">{{ websiteOwnerInfo }}</p>
+        </div>
         <div class="flex flex-row ml-2 mr-2 lg:ml-8 lg:mr-8">
             <!--website agency link-->
             <a class="flex flex-row items-center gap-4 text-thin text-center text-black" v-bind:href="companyWebsite">

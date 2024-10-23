@@ -1,7 +1,10 @@
 <template>
+
+	<!--holds all navbar contents-->
+	<div class="flex flex-col relative w-full z-10">
 	<div class="w-full flex flex-col">
     <!-- component -->
-	<nav id="navbar" class="w-full h-20 transition-all duration-500 relative top-0 flex flex-row bg-gradient-to-r from-indigo-100 to-fuchsia-200 shadow-xl px-4 py-4 justify-between items-center">
+	<nav id="navbar" class="w-full h-20 transition-all duration-500 relative top-0 flex flex-row bg-fuchsia-200/40 hover:bg-fuchsia-200/100 shadow-xl px-4 py-4 justify-between items-center">
 		<!--image logo-->
 		<div class="">
 			<img alt="Corporation logo" class="sticky top-2 hover:scale-125 hover:translate-x-4 hover:translate-y-4 transition-transform inline h-16 sm:mx-0 sm:shrink-0" v-bind:src="logoImage"/>
@@ -41,7 +44,15 @@
 				</svg>
 			</li>
 			<li>
-				<RouterLink to="/notimplemented" class="text-md text-blue-400 hover:text-blue-800 hover:font-bold hover:text-xl">reserved</RouterLink>
+				<RouterLink to="/portfolio" class="text-md text-blue-400 hover:text-blue-800 hover:font-bold hover:text-xl">Portfolio</RouterLink>
+			</li>
+			<li class="text-gray-400">
+				<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-4 h-4 current-fill" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+				</svg>
+			</li>
+			<li>
+				<RouterLink to="/test" class="text-md text-blue-400 hover:text-blue-800 hover:font-bold hover:text-xl">Test</RouterLink>
 			</li>
 		</ul>
 		<a class="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-200 text-sm text-gray-900 font-bold  rounded-xl transition duration-200">Sign In</a>
@@ -86,6 +97,7 @@
 			</div>
 		</nav>
 	</div>
+</div>
 </template>
 <script setup>
 defineProps({
@@ -154,6 +166,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	if (currentScrollPos < lastScrollPos ){
 
 		//position the relative element by page viewport
+
 		element.style.top=element.style.top=window.visualViewport.pageTop.toString().concat('px')
 		element.style.transitionDuration=String('0.3s');
 		//element.style.position = 'relative';

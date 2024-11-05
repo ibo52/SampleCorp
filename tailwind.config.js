@@ -13,6 +13,7 @@ export default {
             'gradient-x':'gradient-x 12s ease infinite',
             'gradient-y':'gradient-y 12s ease infinite',
             'gradient-xy':'gradient-xy 12s ease infinite',
+            'slider':'slider 15s linear infinite'
         },
         'keyframes': {
             'gradient-y': {
@@ -43,6 +44,15 @@ export default {
                 '50%': {
                     'background-size':'200% 200%',
                     'background-position': 'right center'
+                }
+            },
+            'slider':{
+                '0%': {
+                    'transform': 'translateX(0%)'
+               },
+                '100%': {
+                    'transform':'translateX(-50%)',
+
                 }
             }
         }

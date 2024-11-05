@@ -50,11 +50,11 @@ const props=reactive([
         <div id="canvas" class="w-max flex gap-8 animate-slider">
 
             <!--Add reference image and descriptions from work partners or anything-->
-                <ReferenceComment class="[&&]:w-[24vw] [&&]:h-auto md:w-[49vw] xl:w-[24vw] 2xl:w-[19vw]" v-for="(item, key) in references" v-bind:key="key"
+                <ReferenceComment class="[&&]:w-[88vw] [&&]:md:w-[31vw] [&&]:xl:w-[22vw] [&&]:2xl:w-[16vw]" v-for="(item, key) in references" v-bind:key="key"
                 :img="item.img" :comment="item.comment" :name="item.reference"></ReferenceComment>
 
             <!--add same references again to make slide animation smooth-->
-            <ReferenceComment class="[&&]:w-[24vw] [&&]:h-auto md:w-[49vw] xl:w-[24vw] 2xl:w-[19vw]" v-for="(item, key) in references" v-bind:key="key"
+            <ReferenceComment class="[&&]:w-[44vw] [&&]:md:w-[31vw] [&&]:xl:w-[22vw] [&&]:2xl:w-[16vw]" v-for="(item, key) in references" v-bind:key="key"
                 :img="item.img" :comment="item.comment" :name="item.reference"></ReferenceComment>
 
         </div>

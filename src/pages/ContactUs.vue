@@ -21,15 +21,16 @@ const props=reactive({
 </script>
 
 <template>
-    <div class="flex flex-col items-center w-full bg-cover bg-center bg-fixed bg-[url('../resources/tailoring2.jpg')]">
+    <div class="flex flex-col">
+    <div class="flex flex-col items-center w-full pb-[8rem] bg-cover bg-center bg-fixed bg-[url('../resources/tailoring2.jpg')]">
 
         <Title
         class="text-gray-800"
         :title=props.Title.title
         :description=props.Title.description
         />
-
-        <div class="items-center w-full lg:mt-[8rem] bg-white">
+    </div>
+        <div class="items-center w-full lg:mt-[8rem]">
 
             <div class="flex flex-col lg:grid lg:grid-cols-12 justify-items-center items-center">
 

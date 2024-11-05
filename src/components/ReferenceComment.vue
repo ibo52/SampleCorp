@@ -18,7 +18,7 @@ const props=defineProps({
 })
 </script>
 <template>
-    <div class="items-center gap-4 p-2 w-full h-full grid grid-cols-3 bg-white/80 rounded-2xl">
+    <div class="items-center gap-4 p-2 w-full h-full grid grid-cols-3 bg-theme-background-color-mute rounded-2xl">
 
         <!--
         <div class="bg-cover bg-center bg-[url('src/resources/alteration.jpg')] w-40 h-40 gap-8"></div>

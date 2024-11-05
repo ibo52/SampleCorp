@@ -27,7 +27,7 @@ defineProps({
 })
 </script>
 <template><!--bg-[url('../resources/sample.jpg')]-->
-    <div class="flex flex-row justify-between bg-fuchsia-200 text-center p-2">
+    <div class="flex flex-row justify-between bg-theme-color text-center p-2">
 
         <!--website owner info-->
         <div class="flex flex-col">
@@ -36,7 +36,7 @@ defineProps({
         </div>
         <div class="flex flex-row ml-2 mr-2 lg:ml-8 lg:mr-8">
             <!--website agency link-->
-            <a class="flex flex-row items-center gap-4 text-thin text-center text-black" v-bind:href="companyWebsite">
+            <a class="flex flex-row items-center gap-4 text-thin text-center" v-bind:href="companyWebsite">
                 <!--website agency logo-->
                 <img class="w-8 rounded-full" v-bind:src="companyLogo" alt="Company logo">
                 <!--website agency info-->

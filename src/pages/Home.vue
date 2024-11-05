@@ -165,7 +165,7 @@ dynamicBoxes.update()
         </div>
 
         <!--context-->
-        <div class="gap-8 p-4 md:p-8 bg-gradient-to-br from-white from-30% via-sky-300 via-50% to-purple-400 to-70% bg-fixed animate-gradient-xy">
+        <div class="gap-8 p-4 md:p-8 bg-gradient-to-br from-theme-background-color-mute from-30% via-theme-gradient-from via-50% to-theme-gradient-to to-70% bg-fixed animate-gradient-xy">
 
             <!--introduction-->
             <div class="flex flex-col md:grid md:grid-cols-12 bg-transparent gap-8">

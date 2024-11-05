@@ -4,7 +4,7 @@
 	<div class="flex flex-col relative w-full z-10">
 	<div class="w-full flex flex-col">
     <!-- component -->
-	<nav id="navbar" class="w-full h-20 transition-all duration-500 relative top-0 flex flex-row bg-fuchsia-200/40 hover:bg-fuchsia-200/100 shadow-xl px-4 py-4 justify-between items-center">
+	<nav id="navbar" class="w-full h-20 transition-all duration-500 relative top-0 flex flex-row bg-theme-color/40 hover:bg-theme-color shadow-xl px-4 py-4 justify-between items-center">
 		<!--image logo-->
 		<div class="">
 			<img alt="Corporation logo" class="sticky top-2 hover:scale-125 hover:translate-x-4 hover:translate-y-4 transition-transform inline h-16 sm:mx-0 sm:shrink-0" v-bind:src="logoImage"/>
@@ -20,7 +20,7 @@
 		</div>
 		<ul class="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
 			<li>
-				<RouterLink to="/" class="text-md text-blue-400 hover:text-blue-800 hover:font-bold hover:text-xl">Home</RouterLink>
+				<RouterLink to="/" class="text-md text-theme-text-color hover:text-blue-800 hover:font-bold hover:text-xl">Home</RouterLink>
 			</li>
 			<li class="text-gray-400">
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-4 h-4 current-fill" viewBox="0 0 24 24">
@@ -55,8 +55,8 @@
 				<RouterLink to="/test" class="text-md text-blue-400 hover:text-blue-800 hover:font-bold hover:text-xl">Test</RouterLink>
 			</li>
 		</ul>
-		<a class="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-200 text-sm text-gray-900 font-bold  rounded-xl transition duration-200">Sign In</a>
-		<a class="hidden lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-700 text-sm text-white font-bold rounded-xl transition duration-200" >Sign up</a>
+		<a id="theme-switch-button" class="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-700 text-sm text-gray-900 hover:text-white font-bold  rounded-xl transition duration-200"><FontAwesomeIcon :icon="faLightbulb"/> Theme</a>
+		<a class="hidden lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-700 text-sm text-white font-bold rounded-xl transition duration-200" > Sign up </a>
 	</nav>
 	</div>
 	<!-- mobile: sliding navbar by menu button-->
@@ -100,6 +100,9 @@
 </div>
 </template>
 <script setup>
+import { faLightbulb } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+
 defineProps({
 	logoImage: {
 	type:String,
@@ -133,7 +136,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const backdrop = document.querySelectorAll('.navbar-backdrop');
 
     if (close.length) {
-        for (var i = 0; i < close.length; i++) {
+        for (let i = 0; i < close.length; i++) {
             close[i].addEventListener('click', function() {
                 for (var j = 0; j < menu.length; j++) {
                     menu[j].classList.toggle('hidden');
@@ -143,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     if (backdrop.length) {
-        for (var i = 0; i < backdrop.length; i++) {
+        for (let i = 0; i < backdrop.length; i++) {
             backdrop[i].addEventListener('click', function() {
                 for (var j = 0; j < menu.length; j++) {
                     menu[j].classList.toggle('hidden');
@@ -151,33 +154,51 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     }
-});
 
- /* When the user scrolls down, hide the navbar. When the user scrolls up, show the navbar */
- var lastScrollPos=window.scrollY;
- window.onscroll=function(){
+	/* When the user scrolls down, hide the navbar. When the user scrolls up, show the navbar */
+	var lastScrollPos=window.scrollY;
+	window.onscroll=function(){
 
-	var currentScrollPos=window.scrollY;
+		var currentScrollPos=window.scrollY;
 
-	//element position should be relative; if not, it can be adjusted from JS
-	var element = document.getElementById('navbar');
+		//element position should be relative; if not, it can be adjusted from JS
+		var element = document.getElementById('navbar');
 
-	//scrolled up
-	if (currentScrollPos < lastScrollPos ){
+		//scrolled up
+		if (currentScrollPos < lastScrollPos ){
 
-		//position the relative element by page viewport
+			//position the relative element by page viewport
 
-		element.style.top=element.style.top=window.visualViewport.pageTop.toString().concat('px')
-		element.style.transitionDuration=String('0.3s');
-		//element.style.position = 'relative';
+			element.style.top=element.style.top=window.visualViewport.pageTop.toString().concat('px')
+			element.style.transitionDuration=String('0.3s');
+			//element.style.position = 'relative';
+		}
+		//scroll down
+		else{
+
+			element.style.top = String('0px');
+
+		}
+		lastScrollPos=currentScrollPos;
+
 	}
-	//scroll down
-	else{
 
-		element.style.top = String('0px');
+	document.getElementById('theme-switch-button').onclick=function() {
 
-	}
-	lastScrollPos=currentScrollPos;
+		if (document.documentElement.classList.contains("light")) {
+			document.documentElement.classList.remove("light")
+			document.documentElement.classList.add("dark")
+		} else if (document.documentElement.classList.contains("dark")) {
+			document.documentElement.classList.remove("dark")
+			document.documentElement.classList.add("light")
+		} else {
+			if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+			document.documentElement.classList.add("dark")
+			} else {
+			document.documentElement.classList.add("light")
+			}
+		}
 
  }
+});
 </script>

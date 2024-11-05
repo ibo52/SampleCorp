@@ -7,6 +7,16 @@ export default {
       fontFamily:{
         'dancing-script': ['Dancing Script', 'cursive'],
         'satisfy':['Satisfy', 'cursive']
+      },
+      colors:{//theme variables from base css
+        'theme-text-color':'var(--color-text)',
+        'theme-background-color':'var(--color-background)',
+        'theme-background-color-soft':'var(--color-background-soft)',
+        'theme-background-color-mute':'var(--color-background-mute)',
+        //custom theme variables from base css which is defined to be tailwind compatible
+        'theme-color':'rgb(var(--color-theme) / <alpha-value>)',
+        'theme-gradient-from':'rgb(var(--theme-gradient-from) / <alpha-value>)',
+        'theme-gradient-to':'rgb(var(--theme-gradient-to) / <alpha-value>)'
       }
     },
     'animation': {

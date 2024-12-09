@@ -1,63 +1,44 @@
 <script setup>
-import MasonryGallery from '@/components/MasonryGallery.vue';
+import Gallery from '@/components/Gallery.vue';
 import Title from '@/components/Title.vue';
 </script>
 <template>
 
-    <div class="w-full items-center">
+    <div class="flex flex-col w-full items-center gap-20 pt-20">
 
-        <div class="flex flex-col
-        lg:grid lg:grid-cols-12
-        bg-cover bg-center bg-[url('../resources/tailoring.jpg')] bg-fixed h-[29rem] relative"
-        >
-                    <!--title positioned as absolute-->
-                    <Title class="m-20 lg:p-2 absolute bg-black/20 text-white backdrop-brightness-100"
-                                title="Your work is unique."
-                                description="Because we cutting and fitting the fabrics."/>
+        <div class="grid grid-cols-12 w-full h-full">
+            <div class="col-span-5 h-dvh w-full
+            bg-[url('/src/assets/resources/img/portfolio.jpg')] bg-fixed bg-center">
 
-                    <!-- left split when enlarged-->
-                    <!-- flex box on small screens-->
-                    <div class="flex lg:col-span-5 bg-black/80 h-full w-full mix-blend-overlay overflow-scroll">
-                    </div>
-
-                    <!-- right split when enlarged-->
-                    <div class="hidden lg:flex lg:col-span-7
-                    bg-pink-800/90 mix-blend-overlay">
-                    </div>
+            </div>
+            <div class="col-span-7">
+                <p class="text-6xl pt-32 text-center font-bold font-dancing-script">Fatoş Moda Evi</p>
+                <p class=" text-2xl m-2 text-center">Is a small business for all your tailoring needs</p>
+            </div>
         </div>
-        <div class="mx-8 my-8 gap-8">
+        <!-- parallax-->
 
-            <Title
-            class="bg-transparent"
-            title="Let us introduce Ourselves"/>
-        <p>
-            We’re all about making good, lovely custom clothing to
-        be worn on most memorable days. We’re passionate about
-        changing the way you look at clothing. We want to share
-        our years of experience of cutting and sewing to suit your appearance.
-        It’s time to start wearing clothes that fashionable,
-        share your enthusiasm of trends with us.
-        We’re all about making good, lovely custom clothing to
-        be worn on most memorable days. We’re passionate about
-        changing the way you look at clothing. We want to share
-        our years of experience of cutting and sewing to suit your appearance.
-        It’s time to start wearing clothes that fashionable,
-        share your enthusiasm of trends with us.
-        We’re all about making good, lovely custom clothing to
-        be worn on most memorable days. We’re passionate about
-        changing the way you look at clothing. We want to share
-        our years of experience of cutting and sewing to suit your appearance.
-        It’s time to start wearing clothes that fashionable,
-        share your enthusiasm of trends with us.
-        We’re all about making good, lovely custom clothing to
-        be worn on most memorable days. We’re passionate about
-        changing the way you look at clothing. We want to share
-        our years of experience of cutting and sewing to suit your appearance.
-        It’s time to start wearing clothes that fashionable,
-        share your enthusiasm of trends with us.
-        </p>
+        <div class="grid grid-cols-12 w-full h-full gap-8">
+
+            <div class="col-span-7">
+                <p class="text-6xl pt-32 text-center font-bold font-dancing-script">Since 2005</p>
+                <p class=" text-2xl m-2 text-center">Working with passion through the years..</p>
+            </div>
+
+            <div class="col-span-5 h-dvh w-full
+            bg-[url('/src/assets/resources/img/taylor-swift-header-2.jpg')] bg-fixed bg-center -rotate-12">
+
+
+
+            <img src="/src/assets/resources/img/sample-p2.jpg" class="absolute inset-0 bg-fixed w-fit md:w-8/12 bg-center rotate-[24deg]">
+
+            <img src="/src/assets/resources/img/marilyn-monroe.jpg" class="absolute inset-0 translate-y-[8rem]  md:inset-32 bg-fixed w-fit md:w-7/12 bg-center rotate-[36deg]">
+
+            <img src="/src/assets/resources/img/bihter-ziyagil.jpg" class="absolute inset-0 translate-y-[16rem] md:inset-64 md:-translate-x-[8rem] md:translate-y-[8rem] bg-fixed w-fit md:w-5/12 bg-center ">
+            </div>
         </div>
+        <!-- parallax-->
 
-        <MasonryGallery></MasonryGallery>
-</div>
+        <Gallery></Gallery>
+    </div>
 </template>

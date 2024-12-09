@@ -1,8 +1,6 @@
 <script setup>
 import { reactive } from 'vue';
 import Title from '@/components/Title.vue';
-import WidgetIconBox from '@/components/WidgetIconBox.vue';
-import Gallery from '@/components/Gallery.vue';
 import WallGallery from '@/components/WallGallery.vue';
 import ShiftingBrandLabels from '@/components/ShiftingBox.vue';
 
@@ -12,7 +10,7 @@ const props=reactive({
         description:"Because we cutting and fitting the fabrics.",
     }
 })
-
+/*
 const whatDoWeDo=reactive(
     [
         {
@@ -25,26 +23,27 @@ const whatDoWeDo=reactive(
         {
             title:"2 Casting desires to fabric",
             description:"personalized fittings and style advice, making it convenient for all clients.",
-            icon:"/src/resources/sketch2.jpg"
+            icon:"/assets/resources/img/sketch2.jpg"
         },
         {
             title:"3 Alteration",
             description:`Professional alteration services for all types of clothing,
              from hems to full adjustments, ensuring the perfect fit.`,
-            icon:"/src/resources/alteration.jpg"
+            icon:"/assets/resources/img/alteration.jpg"
         },
         {
             title:"4 Our Portfolio",
             description:`Have a look at our showcase of previous works, illustrating the variety of
              styles and projects undertaken, including before-and-after shots.`,
-             icon:"/src/resources/portfolio.jpg"
+             icon:"/assets/resources/img/portfolio.jpg"
         }
     ]
 )
-
+*/
 //dynamic binding to boxes on "whatdowedo widget"
 //set periodic back process to dynamically change the context
 //at section "What do we do"
+/*
 class DynamicBoxes{
     static TEXT_CHANGE_INTERVAL_MS=6600
     static BOX_ANIM_DURATION=600
@@ -135,7 +134,7 @@ class DynamicBoxes{
     }
 }
 const dynamicBoxes=new DynamicBoxes(whatDoWeDo)
-dynamicBoxes.update()
+dynamicBoxes.update()*/
 
 </script>
 <template>
@@ -144,7 +143,7 @@ dynamicBoxes.update()
 
         <div class="flex flex-col
         md:grid md:grid-cols-12
-        bg-cover bg-center bg-[url('../resources/tailoring.jpg')] bg-fixed h-[29rem] relative"
+        bg-cover bg-center bg-[url('@/assets/resources/img/tailoring.jpg')] bg-fixed h-[29rem] relative"
         >
                     <!--title positioned as absolute-->
                     <Title class="relative md:absolute mx-5 my-20 md:m-20 rounded-md md:p-2 border-cyan-900 border-[12px] overflow-scroll
@@ -174,7 +173,7 @@ dynamicBoxes.update()
                 <!-- todo: image gallery maybe-->
                 <div class="flex flex-col md:col-span-5">
 
-                    <img src="../resources/tailoring2.jpg"
+                    <img src="@/assets/resources/img/tailoring2.jpg"
                     class=" m-auto block rounded-md">
 
 

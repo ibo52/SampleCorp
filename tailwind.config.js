@@ -23,7 +23,8 @@ export default {
             'gradient-x':'gradient-x 12s ease infinite',
             'gradient-y':'gradient-y 12s ease infinite',
             'gradient-xy':'gradient-xy 12s ease infinite',
-            'slider':'slider 15s linear infinite'
+            'slider':'slider 15s linear infinite',
+            'glow':'glow 1s ease-in-out infinite alternate'
         },
         'keyframes': {
             'gradient-y': {
@@ -62,6 +63,15 @@ export default {
                },
                 '100%': {
                     'transform':'translateX(-50%)',
+
+                }
+            },
+            'glow':{
+                '0%': {
+                    'text-shadow': '0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073'
+               },
+                '100%': {
+                    'text-shadow':'0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6',
 
                 }
             }

@@ -5,7 +5,7 @@
         class="bg-transparent"
         title="Album"
         description="pieces from our memorable moments.."
-        background-image="../src/tailoring.jpg"
+        background-image="../assets/resources/img/tailoring.jpg"
         />
 
         <div class="container grid grid-cols-2 gap-6 gap-y-8">
@@ -19,23 +19,23 @@
                 <!--album collage at right of sub-->
                 <div class="grid grid-cols-12 col-span-12 sm:col-span-5 lg:col-span-3 gap-4">
 
-                    <img alt="album image" class="col-span-5 rounded-sm object-cover h-auto w-full" src="../resources/sample.jpg"/>
-                    <img alt="album image" class="col-span-7 rounded-sm object-cover h-auto w-full" src="../resources/sample.jpg"/>
-                    <img alt="album image" class="col-span-12 rounded-sm object-cover h-auto w-full" src="../resources/sample.jpg"/>
+                    <img alt="album image" class="col-span-5 rounded-sm object-cover h-auto w-full" src="../assets/resources/img/sample.jpg"/>
+                    <img alt="album image" class="col-span-7 rounded-sm object-cover h-auto w-full" src="../assets/resources/img/sample.jpg"/>
+                    <img alt="album image" class="col-span-12 rounded-sm object-cover h-auto w-full" src="../assets/resources/img/sample.jpg"/>
                 </div>
             </div>
             <!-- right side-->
             <div class="grid grid-cols-12 gap-6 content-start m-8"><!-- bg-[url('../resources/sample.jpg')] bg-center bg-cover -->
 
             <!-- image at left-->
-            <img alt="album image" class="col-span-12 lg:col-span-5 lg:row-span-2 rounded-xl object-cover h-auto w-full" src="../resources/sample.jpg"/>
+            <img alt="album image" class="col-span-12 lg:col-span-5 lg:row-span-2 rounded-xl object-cover h-auto w-full" src="../assets/resources/img/sample.jpg"/>
 
             <!--album collage at right-->
             <div class="grid grid-cols-12 col-span-12 sm:col-span-5 lg:col-span-3 gap-4">
 
-                <img alt="album image" class="col-span-5 rounded-sm object-cover h-auto w-full" src="../resources/sample.jpg"/>
-                <img alt="album image" class="col-span-7 rounded-sm object-cover h-auto w-full" src="../resources/sample.jpg"/>
-                <img alt="album image" class="col-span-12 rounded-sm object-cover h-auto w-full" src="../resources/sample.jpg"/>
+                <img alt="album image" class="col-span-5 rounded-sm object-cover h-auto w-full" src="../assets/resources/img/sample.jpg"/>
+                <img alt="album image" class="col-span-7 rounded-sm object-cover h-auto w-full" src="../assets/resources/img/sample.jpg"/>
+                <img alt="album image" class="col-span-12 rounded-sm object-cover h-auto w-full" src="../assets/resources/img/sample.jpg"/>
             </div>
             </div>
 

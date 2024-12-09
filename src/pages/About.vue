@@ -13,8 +13,8 @@ const props=reactive({
 <template>
     <div class="flex flex-col">
 
-    <div class="flex flex-col items-center w-full bg-fuchsia-200 pb-[8rem]
-    bg-cover bg-center bg-fixed bg-[url('../resources/sketch2.png')]">
+    <div class="flex flex-col items-center w-full bg-theme-color pb-[8rem]
+    bg-cover bg-center bg-fixed bg-[url('../assets/resources/img/sketch2.png')]">
     <Title
         class=" text-gray-800 drop-shadow-[0_4.8px_1.2px_rgba(255,0,255,0.8)]"
         :title=props.Title.title
@@ -31,7 +31,7 @@ const props=reactive({
                 </h1>
 
                 <!-- image at left-->
-                <img alt="album image" class="col-span-12 lg:col-span-5 lg:row-span-2 rounded-xl object-cover h-auto w-full" src="../resources/patoz.jpg"/>
+                <img alt="album image" class="-rotate-[2deg] col-span-12 lg:col-span-5 lg:row-span-2 rounded-xl object-cover h-auto w-full" src="/src/assets/resources/img/tailoring.jpg"/>
 
                 <!-- passages between images and albums-->
                 <p class="text-xl col-span-12 lg:col-span-7">
@@ -59,11 +59,11 @@ const props=reactive({
                 </p>
 
                 <!--album collage at right-->
-                <div class="grid grid-cols-12 col-span-12 sm:col-span-5 lg:col-span-3 gap-4">
+                <div class="grid grid-cols-12 col-span-12 sm:col-span-5 lg:col-span-3 gap-4 -rotate-[2deg]">
 
-                    <img alt="album image" class="col-span-5 rounded-sm object-cover h-auto w-full" src="../resources/sample.jpg"/>
-                    <img alt="album image" class="col-span-7 rounded-sm object-cover h-auto w-full" src="../resources/hazelnut.jpg"/>
-                    <img alt="album image" class="col-span-12 rounded-sm object-cover h-auto w-full" src="../resources/ordu-cambasi.jpg"/>
+                    <img alt="album image" class="col-span-5 rounded-sm object-cover h-auto w-full" src="/src/assets/resources/img/marilyn-monroe.jpg"/>
+                    <img alt="album image" class="col-span-7 rounded-sm object-cover h-auto w-full" src="/src/assets/resources/img/bihter-ziyagil.jpg"/>
+                    <img alt="album image" class="col-span-12 rounded-sm object-cover h-auto w-full" src="/src/assets/resources/img/taylor-swift-header-2.jpg"/>
                 </div>
 
             </div>

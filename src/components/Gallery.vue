@@ -1,10 +1,18 @@
+<script setup>
+const props=defineProps({
+    img:[{
+        name:"abc",
+        link:"/assets/resources/alteration.jpg"
+    }]
+})
+</script>
 <template>
 <div id="gallery" class="relative w-full" data-carousel="slide">
     <!-- Carousel wrapper -->
     <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
          <!-- Item 1 -->
         <div class="bg-black duration-700 h-full ease-in-out" data-carousel-item>
-            <img src="../resources/alteration.jpg" class="absolute w-fit max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="">
+            <img src="../assets/resources/img/alteration.jpg" class="absolute w-fit max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="">
         </div>
 
     </div>

@@ -1,5 +1,4 @@
 <template>
-
 	<!--holds all navbar contents-->
 	<div class="flex flex-col relative w-full z-10">
 	<div class="w-full flex flex-col">
@@ -19,41 +18,16 @@
 			</button>
 		</div>
 		<ul class="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
-			<li>
-				<RouterLink to="/" class="text-md text-theme-text-color hover:text-blue-800 hover:font-bold hover:text-xl">Home</RouterLink>
+			<li v-for="(item, index) in props.links" :key="index">
+				<RouterLink :to="item.link" class="text-md text-theme-text-color hover:text-blue-800 hover:font-bold hover:text-xl">{{ item.name }}</RouterLink>
 			</li>
+			<!--
 			<li class="text-gray-400">
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-4 h-4 current-fill" viewBox="0 0 24 24">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
 				</svg>
 			</li>
-			<li>
-				<RouterLink to="/about" class="text-md text-blue-400 hover:text-blue-800 hover:font-bold hover:text-xl">About Us</RouterLink>
-			</li>
-			<li class="text-gray-400">
-				<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-4 h-4 current-fill" viewBox="0 0 24 24">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
-				</svg>
-			</li>
-			<li>
-				<RouterLink to="/contact" class="text-md text-blue-400 hover:text-blue-800 hover:font-bold hover:text-xl">Contact Us</RouterLink>
-			</li>
-			<li class="text-gray-400">
-				<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-4 h-4 current-fill" viewBox="0 0 24 24">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
-				</svg>
-			</li>
-			<li>
-				<RouterLink to="/portfolio" class="text-md text-blue-400 hover:text-blue-800 hover:font-bold hover:text-xl">Portfolio</RouterLink>
-			</li>
-			<li class="text-gray-400">
-				<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-4 h-4 current-fill" viewBox="0 0 24 24">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
-				</svg>
-			</li>
-			<li>
-				<RouterLink to="/test" class="text-md text-blue-400 hover:text-blue-800 hover:font-bold hover:text-xl">Test</RouterLink>
-			</li>
+			-->
 		</ul>
 		<a id="theme-switch-button" class="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-700 text-sm text-gray-900 hover:text-white font-bold  rounded-xl transition duration-200"><FontAwesomeIcon :icon="faLightbulb"/> Theme</a>
 		<a class="hidden lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-700 text-sm text-white font-bold rounded-xl transition duration-200" > Sign up </a>
@@ -75,14 +49,8 @@
 			</div>
 			<div>
 				<ul>
-					<li class="mb-1">
-						<RouterLink to="/" class="text-md text-blue-400 hover:text-blue-800 hover:font-bold hover:text-xl">Home</RouterLink>
-					</li>
-					<li class="mb-1">
-						<RouterLink to="/about" class="text-md text-blue-400 hover:text-blue-800 hover:font-bold hover:text-xl">About Us</RouterLink>
-					</li>
-					<li class="mb-1">
-						<RouterLink to="/contact" class="text-md text-blue-400 hover:text-blue-800 hover:font-bold hover:text-xl">Contact Us</RouterLink>
+					<li v-for="(item, index) in props.links" :key="index">
+						<RouterLink :to="item.link" class="text-md text-theme-text-color hover:text-blue-800 hover:font-bold hover:text-xl">{{ item.name }}</RouterLink>
 					</li>
 				</ul>
 			</div>
@@ -103,7 +71,7 @@
 import { faLightbulb } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
-defineProps({
+const props = defineProps({
 	logoImage: {
 	type:String,
 	Required:true
@@ -111,8 +79,11 @@ defineProps({
 	trademarkDescription: {
 	type:String,
 	Required:true
+	},
+	links:{
+	type:Array,
+	Required:false
 	}
-
 });
 // Burger menus
 document.addEventListener('DOMContentLoaded', function() {

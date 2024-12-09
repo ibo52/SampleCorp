@@ -5,12 +5,35 @@ import Footer from '@/components/Footer.vue';
 
 const props=reactive({
   title:'Fatoş Moda Evi',
-  logoImage:"src/resources/logo.svg",
+  logoImage:"/src/assets/resources/svg/logo.svg",
   trademarkDescription:"© 2024 Fatoş Moda Evi | Fashionable and Comfortable clothing tailoring",
   designerAgencyName:"HaloSoft Inc.",
   designerAgencyDescription:"All rights reserved",
   designerAgencyRefLink:"https://www.github.com/ibo52",
-  designerAgencyLogo:"src/resources/website agency/logo.png"
+  designerAgencyLogo:"/src/assets/resources/website agency/logo.png",
+
+  navbarLinks:[
+    {
+      'name':'Home',
+      'link':'/'
+    },
+    {
+      'name':'About ',
+      'link':'/about'
+    },
+    {
+      'name':'Contact Us',
+      'link':'/contact'
+    },
+    {
+      'name':'Portfolio',
+      'link':'/portfolio'
+    },
+    /*{
+      'name':'Test',
+      'link':'/test'
+    }*/
+  ]
 })
 
 document.title=props.title
@@ -21,7 +44,8 @@ document.title=props.title
   <header class="flex flex-col">
       <Nav2
       v-bind:logo-image=props.logoImage
-      v-bind:trademark-description=props.trademarkDescriptio
+      v-bind:trademark-description=props.trademarkDescription
+      v-bind:links=props.navbarLinks
       />
   </header>
 

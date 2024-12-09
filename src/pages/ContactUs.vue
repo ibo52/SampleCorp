@@ -22,7 +22,7 @@ const props=reactive({
 
 <template>
     <div class="flex flex-col">
-    <div class="flex flex-col items-center w-full pb-[8rem] bg-cover bg-center bg-fixed bg-[url('../resources/tailoring2.jpg')]">
+    <div class="flex flex-col items-center w-full pb-[8rem] bg-theme-color bg-cover bg-center bg-fixed bg-[url('../assets/resources/img/tailoring2.jpg')]">
 
         <Title
         class="text-gray-800"

@@ -7,7 +7,7 @@
   font-weight: normal;
 }
 
-.green {
+a, .green {
   text-decoration: none;
   color: hsla(160, 100%, 37%, 1);
   transition: 0.4s;
@@ -17,9 +17,9 @@
 /*custom fonts on local*/
 @font-face {
   font-family: 'Dancing Script';
-  src: url('../resources/fonts/google/DancingScript-VariableFont_wght.ttf');
+  src: url('../fonts/google/DancingScript-VariableFont_wght.ttf');
 }
 @font-face {
   font-family: 'Satisfy';
-  src: url('../resources/fonts/google/Satisfy-Regular.ttf');
+  src: url('../fonts/google/Satisfy-Regular.ttf');
 }

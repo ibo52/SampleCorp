@@ -31,7 +31,7 @@ defineProps({
 
         <!--website owner info-->
         <div class="flex flex-col">
-            <img src="../resources/logo.svg" fill="#fff" class="w-40 h-full">
+            <img src="../assets/resources/svg/logo.svg" fill="#fff" class="w-40 h-full">
             <p class="text-start font-bold text-lg">{{ websiteOwnerInfo }}</p>
         </div>
         <div class="flex flex-row ml-2 mr-2 lg:ml-8 lg:mr-8">

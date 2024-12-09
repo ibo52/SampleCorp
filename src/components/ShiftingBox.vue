@@ -5,30 +5,30 @@ import ReferenceComment from './ReferenceComment.vue';
 const references=[
     {
         "reference":"John smith",
-        "img":"src/resources/alteration.jpg",
+        "img":new URL("@/assets/resources/img/alteration.jpg", import.meta.url).href,
         "comment":"It was a great opportunity to work with her/him."
     },
 
     {
         "reference":"Jane doe",
-        "img":"src/resources/tailoring2.jpg",
+        "img":new URL("@/assets/resources/img/tailoring2.jpg", import.meta.url).href,
         "comment":"The dresses have a goergeous design."
     },
 
     {
         "reference":"Matt hoe",
-        "img":"src/resources/tailoring.jpg",
+        "img":new URL("@/assets/resources/img/tailoring.jpg", import.meta.url).href,
         "comment":"Can not be compared to anyone."
     },
     {
         "reference":"Jane Smith",
-        "img":"src/resources/logo.png",
+        "img":new URL("@/assets/resources/img/logo.png", import.meta.url).href,
         "comment":"advanced in terms of fashion and modesty"
     },
 
     {
         "reference":"Jessie Moe",
-        "img":"src/resources/sketch3.jpg",
+        "img":new URL("@/assets/resources/img/sketch3.jpg", import.meta.url).href,
         "comment":"Find by a suggestion of a friend when looking for a capable tailor to make a dress i saw on the net. I totally fell for the dress made."
     }
 ]

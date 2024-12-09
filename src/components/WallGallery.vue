@@ -56,7 +56,7 @@ class WallGallery{
             elem.style.borderWidth='16px'
             elem.style.borderColor="#" + ((1 << 24) * Math.random() | 0).toString(16).padStart(6, "0")
 
-            context[index]="/src/resources/".concat(images[index% images.length])//"/src/resources/portfolio.jpg"
+            context[index]=new URL("@/assets/resources/img/".concat(images[index% images.length]), import.meta.url).href//"/src/resources/portfolio.jpg"
         }
     }
 
@@ -94,7 +94,7 @@ class WallGallery{
                     elem.style.borderColor="#" + ((1 << 24) * Math.random() | 0).toString(16).padStart(6, "0")
 
                          //deafult image to show if not any dir given
-                    this.context[this.IMG_IDX%this.context.length]="/src/resources/".concat(images[this.IMG_IDX%images.length])//"/src/resources/portfolio.jpg"
+                    this.context[this.IMG_IDX%this.context.length]=new URL("@/assets/resources/img/".concat(images[this.IMG_IDX%images.length]), import.meta.url).href//"/src/resources/portfolio.jpg"
 
                     this.IMG_IDX = ++this.IMG_IDX % (this.context.length*images.length);
 
